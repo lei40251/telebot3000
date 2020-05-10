@@ -9,7 +9,6 @@ import {
 import { FormControl, Validators } from '@angular/forms';
 import { UaService } from './../../../app-jssip/services/ua.service';
 
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';

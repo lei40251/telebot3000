@@ -9,8 +9,6 @@ import 'rxjs/add/operator/takeWhile';
 import {
   FormBuilder,
   FormGroup,
-  FormControl,
-  Validators,
 } from '@angular/forms';
 
 import { UaService } from './../../../app-jssip/services/ua.service';

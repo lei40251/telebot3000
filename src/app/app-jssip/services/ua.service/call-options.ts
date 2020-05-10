@@ -1,6 +1,3 @@
-import { Session } from './session';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/switchMap';
@@ -8,9 +5,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/share';
 import 'rxjs/operators/takeWhile';
 import 'rxjs/add/observable/combineLatest';
-import { CallType, CallDirection, CallIntalkSubtype } from '../../utils';
 import { ConfigurationService } from './../configuration.service';
-import { UAnewRTCSessionData } from './../../utils';
 
 declare type EndcallCallback = (callData: any) => void;
 

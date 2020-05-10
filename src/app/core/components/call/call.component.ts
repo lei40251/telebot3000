@@ -82,7 +82,7 @@ export class CallComponent implements OnInit, AfterViewInit {
       text,
       language: 'es-ES',
       voiceName:
-        'Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)', //'Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)',
+        'Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)',
       gender: 'Male', // 'Female'
     };
 
@@ -95,7 +95,6 @@ export class CallComponent implements OnInit, AfterViewInit {
   private prepareListening(call) {
     const stream = call.getCallOptions().output;
 
-    //curl -v -X POST "https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=es-es&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: b8cf5513ade1411ea9e8c447c75cd510" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @src/assets/deberes.wav
     const mediaRecorder = new msr(stream);
     mediaRecorder.mimeType = 'audio/wav'; // check this line for audio/wav
     mediaRecorder.ondataavailable = (blob) => {
