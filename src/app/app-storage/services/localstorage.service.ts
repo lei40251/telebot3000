@@ -5,20 +5,18 @@ import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
 export class LocalStorageService {
+  constructor() {
+    localforage.config({
+      driver: localforage.LOCALSTORAGE,
+      name: 'telecom3000',
+      version: 1.0,
+      storeName: 'configuration',
+    });
+  }
 
-
-    constructor() {
-        localforage.config({
-            driver: localforage.LOCALSTORAGE,
-            name: 'telecom3000',
-            version: 1.0,
-            storeName: 'configuration'
-        });
-    }
-
-    public clearAll() {
-        return Observable.fromPromise(localforage.clear());
-    }
+  public clearAll() {
+    return Observable.fromPromise(localforage.clear());
+  }
 
   /**
    *
@@ -48,5 +46,4 @@ export class LocalStorageService {
   public removeItem(key: string): Observable<void> {
     return Observable.fromPromise(localforage.removeItem(key));
   }
-
 }

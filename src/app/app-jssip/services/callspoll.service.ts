@@ -5,19 +5,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/merge';
 
-
 import { LocalStorageService } from './../../app-storage/services/localstorage.service';
 
 @Injectable()
 export class CallspollService {
-
   private _calls: Call[] = [];
   public calls: BehaviorSubject<Call[]>;
 
-  constructor(
-    private localstorage: LocalStorageService
-  ) {
-
+  constructor(private localstorage: LocalStorageService) {
     this._loadDeadCalls();
     this.calls = new BehaviorSubject(this._calls);
   }
@@ -35,30 +30,35 @@ export class CallspollService {
       const id = callData.id;
       const key = `C_${id}`;
 
-      this.localstorage.setItem(key, callData)
-        .subscribe((savedCallData: any) => this._updateCallIndex(savedCallData.id));
+      this.localstorage
+        .setItem(key, callData)
+        .subscribe((savedCallData: any) =>
+          this._updateCallIndex(savedCallData.id)
+        );
     };
   }
 
   private _loadDeadCalls() {
     this.localstorage
       .getItem('CALLS_INDEX')
-      .map(calls => !calls ? [] : calls)
+      .map((calls) => (!calls ? [] : calls))
       .switchMap((callIndex: string[]) => {
         // remove everything but first 15
-        callIndex.slice(15).map(id => this.localstorage.removeItem(`C_${id}`));
+        callIndex
+          .slice(15)
+          .map((id) => this.localstorage.removeItem(`C_${id}`));
         const newCallIndex = callIndex.slice(0, 15);
         this.localstorage.setItem('CALLS_INDEX', newCallIndex);
         return Observable.merge(
-          ...newCallIndex.map(id => this.localstorage.getItem(`C_${id}`))
+          ...newCallIndex.map((id) => this.localstorage.getItem(`C_${id}`))
         );
-      }).subscribe((c) => {
+      })
+      .subscribe((c) => {
         const call = new Call();
         call.hydrate(c);
         this.addCall(call, false);
       });
   }
-
 
   private _updateCallIndex(id) {
     this.localstorage
@@ -71,7 +71,6 @@ export class CallspollService {
         }
         this.localstorage.setItem('CALLS_INDEX', callIndex);
       });
-
   }
 
   private _emit() {
@@ -79,7 +78,6 @@ export class CallspollService {
   }
 
   getCallById(id: string) {
-    return this._calls.filter(c => c.id === id).shift() || false;
+    return this._calls.filter((c) => c.id === id).shift() || false;
   }
-
 }

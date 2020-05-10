@@ -9,31 +9,31 @@ import { CallComponent } from '../core/components/call/call.component';
 
 export const routes: Routes = [
   {
-    path: '', redirectTo: 'phone', pathMatch: 'full'
+    path: '',
+    redirectTo: 'phone',
+    pathMatch: 'full',
   },
   {
     path: 'phone',
-    component: PhoneComponent
+    component: PhoneComponent,
   },
   {
     path: 'callslist',
-    component: CallslistComponent
+    component: CallslistComponent,
   },
   {
     path: 'call/:id',
-    component: CallComponent
+    component: CallComponent,
   },
   {
     path: 'config',
-    component: ConfigComponent
-  }
+    component: ConfigComponent,
+  },
 ];
 
-
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ],
-  providers: [ ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: [],
 })
 export class AppRoutingModule {}
-

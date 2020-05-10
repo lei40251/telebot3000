@@ -1,33 +1,32 @@
-
 div.actions {
-    text-align: center;
-    width:85%;
-    border:1px solid #dedede;
-    margin: 2em auto;
-    padding: 0.5em;
+  text-align: center;
+  width: 85%;
+  border: 1px solid #dedede;
+  margin: 2em auto;
+  padding: 0.5em;
 }
-
 
 img.emotclips {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
-div.speaking, div.lsitening  {
-    text-align: center;
-    .mat-form-field {
-        margin:1em;
-        width:75%;
-    }
+div.speaking,
+div.lsitening {
+  text-align: center;
+  .mat-form-field {
+    margin: 1em;
+    width: 75%;
+  }
 }
 
 div.words {
-    max-height: 120px;
-    overflow-y: auto;
-    p {
-        font-size: 0.8em;
-        border-bottom: 1px dashed #cdcdcd;
-        width:80%;
-        margin:0 auto;
-    }
+  max-height: 120px;
+  overflow-y: auto;
+  p {
+    font-size: 0.8em;
+    border-bottom: 1px dashed #cdcdcd;
+    width: 80%;
+    margin: 0 auto;
+  }
 }

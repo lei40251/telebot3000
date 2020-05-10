@@ -2,20 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UaService } from './../../../app-jssip/services/ua.service';
 import { Call } from './../../../app-jssip/services/ua.service/call';
 
-
 @Component({
-    selector: 'app-call-brief',
-    templateUrl: './call-brief.component.html',
-    styleUrls: ['./call-brief.component.scss']
+  selector: 'app-call-brief',
+  templateUrl: './call-brief.component.html',
+  styleUrls: ['./call-brief.component.scss'],
 })
 export class CallBriefComponent implements OnInit {
-    @Input() call: Call;
-    @Input() source: string;
-    constructor(
-        private UA: UaService,
-    ) { }
+  @Input() call: Call;
+  @Input() source: string;
+  constructor(private UA: UaService) {}
 
-    ngOnInit() {
-    }
-
+  ngOnInit() {}
 }

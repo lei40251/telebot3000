@@ -5,49 +5,48 @@ import 'rxjs/add/observable/merge';
 
 import { LocalStorageService } from './../../app-storage/services/localstorage.service';
 
-
-
 @Injectable()
 export class ConfigurationStoreService {
+  private props = [
+    'wsuri',
+    'sipuri',
+    'password',
+    'autoconnect',
+    'autosave',
+    'stuns',
+    'azurekeys',
+  ];
 
-    private props = ['wsuri', 'sipuri', 'password', 'autoconnect', 'autosave', 'stuns', 'azurekeys'];
+  constructor(
+    private configuration: ConfigurationService,
+    private localstorage: LocalStorageService
+  ) {}
 
-    constructor(
-        private configuration: ConfigurationService,
-        private localstorage: LocalStorageService
-    ) {
+  saveConfiguration(): Observable<boolean> {
+    return Observable.merge(
+      ...this.props.map((prop) => {
+        return this.localstorage.setItem(prop, this.configuration[prop]);
+      })
+    ).map((e) => true);
+  }
 
-    }
+  applyConfiguration(): Observable<boolean> {
+    return Observable.merge(
+      ...this.props.map((prop) => {
+        return this.localstorage.getItem(prop).do((value) => {
+          if (value != null) {
+            this.configuration[prop] = value;
+          }
+        });
+      })
+    ).map((e) => true);
+  }
 
-    saveConfiguration(): Observable<boolean> {
-        return Observable.merge(
-            ...this.props.map((prop) => {
-                return this.localstorage.setItem(prop, this.configuration[prop]);
-            })
-        ).map(e => true);
-    }
-
-
-    applyConfiguration(): Observable<boolean> {
-        return Observable.merge(
-            ...this.props.map((prop) => {
-                return this.localstorage
-                        .getItem(prop)
-                        .do(value => {
-                            if (value != null) {
-                                this.configuration[prop] = value;
-                            }
-                        });
-            })
-        ).map(e => true);
-    }
-
-    clear() {
-        return Observable.merge(
-            ...this.props.map((prop) => {
-                return this.localstorage.removeItem(prop);
-            })
-        ).map(e => true);
-    }
-
+  clear() {
+    return Observable.merge(
+      ...this.props.map((prop) => {
+        return this.localstorage.removeItem(prop);
+      })
+    ).map((e) => true);
+  }
 }

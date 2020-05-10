@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LocalStorageService } from './services/localstorage.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [],
-  providers: [LocalStorageService]
+  providers: [LocalStorageService],
 })
-export class AppStorageModule { }
+export class AppStorageModule {}

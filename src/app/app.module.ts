@@ -17,27 +17,25 @@ import { CallComponent } from './core/components/call/call.component';
 import { CallBriefComponent } from './core/components/call-brief/call-brief.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        PhoneComponent,
-        CallslistComponent,
-        ConfigComponent,
-        CallComponent,
-        CallBriefComponent
-    ],
-    entryComponents: [
-        CallComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        AppMaterialModule,
-        AppRoutingModule,
-        AppJssipModule,
-        HttpClientModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    PhoneComponent,
+    CallslistComponent,
+    ConfigComponent,
+    CallComponent,
+    CallBriefComponent,
+  ],
+  entryComponents: [CallComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppMaterialModule,
+    AppRoutingModule,
+    AppJssipModule,
+    HttpClientModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

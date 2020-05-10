@@ -5,23 +5,14 @@ import { UaService } from './../../../app-jssip/services/ua.service';
 import { CallComponent } from './../call/call.component';
 
 @Component({
-    selector: 'app-callslist',
-    templateUrl: './callslist.component.html',
-    styleUrls: ['./callslist.component.scss']
+  selector: 'app-callslist',
+  templateUrl: './callslist.component.html',
+  styleUrls: ['./callslist.component.scss'],
 })
 export class CallslistComponent implements OnInit, OnDestroy {
+  constructor(public callsPool: CallspollService, public UA: UaService) {}
 
-    constructor(
-        public callsPool: CallspollService,
-        public UA: UaService,
-    ) { }
+  ngOnInit() {}
 
-    ngOnInit() {
-
-    }
-
-    ngOnDestroy() {
-
-    }
-
+  ngOnDestroy() {}
 }

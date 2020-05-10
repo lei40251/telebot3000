@@ -8,17 +8,15 @@ import { UaService } from './services/ua.service';
 import { ConfigurationStoreService } from './services/configuration-store.service';
 import { CallspollService } from './services/callspoll.service';
 
-
-
 @NgModule({
-  imports: [
-    CommonModule,
-    AppStorageModule
-  ],
-  exports: [
-    AppStorageModule
-  ],
+  imports: [CommonModule, AppStorageModule],
+  exports: [AppStorageModule],
   declarations: [],
-  providers: [ConfigurationService, UaService, ConfigurationStoreService, CallspollService ]
+  providers: [
+    ConfigurationService,
+    UaService,
+    ConfigurationStoreService,
+    CallspollService,
+  ],
 })
-export class AppJssipModule { }
+export class AppJssipModule {}
