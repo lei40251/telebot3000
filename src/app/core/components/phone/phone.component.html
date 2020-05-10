@@ -1,13 +1,8 @@
 <div class="container" *ngIf="UA.status | async as status">
   <div class="target">
     <mat-form-field [hideRequiredMarker]="true">
-      <input
-        matInput
-        placeholder="Who are you gonna call?"
-        [formControl]="targetControl"
-        required
-        (keyup.enter)="callIt(status.connected)"
-      />
+      <input matInput placeholder="Who are you gonna call?" [formControl]="targetControl" required
+        (keyup.enter)="callIt(status.connected)" />
     </mat-form-field>
   </div>
   <div class="pad">
@@ -21,14 +16,8 @@
       </ng-template>
 
       <mat-grid-tile colspan="3">
-        <button
-          class="caller"
-          #callButton
-          [disabled]="!status.connected"
-          mat-fab
-          color="accent"
-          (click)="callIt(status.connected)"
-        >
+        <button class="caller" #callButton [disabled]="!status.connected" mat-fab color="accent"
+          (click)="callIt(status.connected)">
           <mat-icon>phone</mat-icon>
         </button>
       </mat-grid-tile>

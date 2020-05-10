@@ -10,5 +10,5 @@ import { Call } from './../../../app-jssip/services/ua.service/call';
 export class CallBriefComponent {
   @Input() call: Call;
   @Input() source: string;
-  constructor(private UA: UaService) {}
+  constructor(public UA: UaService) {}
 }

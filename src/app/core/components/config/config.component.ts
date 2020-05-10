@@ -22,7 +22,7 @@ import { ConfigurationStoreService } from './../../../app-jssip/services/configu
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfigComponent implements OnInit, OnDestroy {
-  hidePassword: true;
+  showPassword: true;
   configForm: FormGroup;
   alive: boolean;
   mustPersist = false;

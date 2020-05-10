@@ -1,14 +1,10 @@
 <div *ngIf="UA.status | async as status">
   <mat-toolbar color="primary">
     <span>
-      <mat-icon
-        class="ok"
-        *ngIf="
+      <mat-icon class="ok" *ngIf="
           status.connected && status.status === 'registered';
           else disconnectedIcon
-        "
-        >mood</mat-icon
-      >
+        ">mood</mat-icon>
       <ng-template #disconnectedIcon>
         <mat-icon class="error">mood_bad</mat-icon>
       </ng-template>
@@ -16,8 +12,7 @@
     <div class="title">
       <div>Telebot 3000</div>
       <div class="who" *ngIf="connectionStatus | async as connStatus">
-        (<strong>{{ connStatus.who }}</strong
-        >)
+        (<strong>{{ connStatus.who }}</strong>)
       </div>
     </div>
 
